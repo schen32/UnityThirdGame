@@ -18,11 +18,15 @@ public class PlayerMovement : MonoBehaviour
         if (m_moveAmount.sqrMagnitude > 0)
         {
             transform.position += new Vector3(m_moveAmount.x, m_moveAmount.y, 0) * m_moveSpeed * Time.deltaTime;
-            m_spriteRenderer.color = Color.red;
-        }
-        else
-        {
-            m_spriteRenderer.color = Color.white;
+            
+            if (m_moveAmount.x >= 0)
+            {
+                m_spriteRenderer.flipX = false;
+            }
+            else if (m_moveAmount.x < 0)
+            {
+                m_spriteRenderer.flipX = true;
+            }
         }
         
     }
