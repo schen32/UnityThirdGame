@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float moveSpeed = 5.0f;
+    public float m_moveSpeed = 5.0f;
 
     SpriteRenderer m_spriteRenderer;
     Vector2 m_moveAmount = Vector2.zero;
@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (m_moveAmount.sqrMagnitude > 0)
         {
-            transform.position += new Vector3(m_moveAmount.x, m_moveAmount.y, 0) * moveSpeed * Time.deltaTime;
+            transform.position += new Vector3(m_moveAmount.x, m_moveAmount.y, 0) * m_moveSpeed * Time.deltaTime;
             m_spriteRenderer.color = Color.red;
         }
         else
