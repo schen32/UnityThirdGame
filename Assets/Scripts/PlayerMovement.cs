@@ -21,7 +21,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (m_moveAmount.sqrMagnitude > 0)
         {
-            transform.position += new Vector3(m_moveAmount.x, m_moveAmount.y, 0) * m_moveSpeed * Time.deltaTime;
+            Vector3 direction = new Vector3(m_moveAmount.x, m_moveAmount.y, 0);
+            transform.position += direction * m_moveSpeed * Time.deltaTime;
             m_isMoving = true;
             
             if (m_moveAmount.x > 0)
