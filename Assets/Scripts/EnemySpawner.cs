@@ -5,12 +5,18 @@ public class EnemySpawner : MonoBehaviour
     public GameObject enemyPrefab;
     public Transform enemyPath;
     public float timeBetweenEnemies = 4f;
+    public float startDelay = 0f;
 
     void Start()
     {
-        StartCoroutine(SpawnWaves());
+        StartCoroutine(SpawnWithDelay());
     }
 
+    IEnumerator SpawnWithDelay()
+    {
+        yield return new WaitForSeconds(startDelay);
+        StartCoroutine(SpawnWaves());
+    }
     IEnumerator SpawnWaves()
     {
         while (true)

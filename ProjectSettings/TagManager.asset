@@ -41,7 +41,7 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Tiles
+  - name: Tiles0
     uniqueID: 3545067329
     locked: 0
   - name: Player
@@ -49,6 +49,12 @@ TagManager:
     locked: 0
   - name: Enemies
     uniqueID: 3591098895
+    locked: 0
+  - name: Tiles1
+    uniqueID: 303145909
+    locked: 0
+  - name: Tiles2
+    uniqueID: 4018419975
     locked: 0
   m_RenderingLayers:
   - Default
