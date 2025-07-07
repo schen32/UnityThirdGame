@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3235392179474191864}
   - component: {fileID: 4210080254153253462}
   - component: {fileID: 5773271077945124028}
+  - component: {fileID: 2788681175911192637}
   m_Layer: 0
   m_Name: PlayerSlashAttack
   m_TagString: Untagged
@@ -134,7 +135,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.35, y: 0.21}
+  m_Size: {x: 3, y: 2}
   m_EdgeRadius: 0
 --- !u!50 &4210080254153253462
 Rigidbody2D:
@@ -185,3 +186,16 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2788681175911192637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4334254264792221280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c88757f761d3a5542b26a57318577450, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackDamage: 1
