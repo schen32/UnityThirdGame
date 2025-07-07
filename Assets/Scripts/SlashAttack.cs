@@ -9,7 +9,6 @@ public class SlashAttack : MonoBehaviour
         EnemyHealth enemyHealth = collision.GetComponent<EnemyHealth>();
         if (enemyHealth != null)
         {
-            AudioManager.Instance.PlayHitEnemySound();
             enemyHealth.TakeDamage(attackDamage);
         }
     }
