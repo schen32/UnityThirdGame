@@ -15,17 +15,31 @@ public class PlayerAttack : MonoBehaviour
     public float slashAttackCooldown = 0.5f;
 
     AttackState slashAttackState = AttackState.Ready;
+    bool isSlashAttackHeld = false;
 
     Animator m_animator;
     void Awake()
     {
         m_animator = GetComponent<Animator>();
     }
-    public void OnAttack(InputValue value)
+    void Update()
     {
-        if (slashAttackState != AttackState.Ready) return;
-
-        StartCoroutine(DoSlashAttack());
+        if (isSlashAttackHeld && slashAttackState == AttackState.Ready)
+        {
+            StartCoroutine(DoSlashAttack());
+        }
+    }
+    public void OnAttack(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            isSlashAttackHeld = true;
+        }
+        else if (context.canceled)
+        {
+            isSlashAttackHeld = false;
+        }
+        
     }
     IEnumerator DoSlashAttack()
     {
