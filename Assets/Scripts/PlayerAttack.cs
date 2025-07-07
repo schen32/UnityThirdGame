@@ -47,6 +47,7 @@ public class PlayerAttack : MonoBehaviour
     }
     IEnumerator DoSlashAttack()
     {
+        AudioManager.Instance.PlaySlashAttackSound();
         m_animator.SetTrigger("SlashAttack");
         slashAttackState = AttackState.Attacking;
 

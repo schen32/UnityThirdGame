@@ -1,4 +1,6 @@
 Todo:
 
-- player can attack enemy
+- enemy flash on hit
+- attack sound
+- damage sound
 - damage numbers
