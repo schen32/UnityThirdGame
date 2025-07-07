@@ -7,6 +7,12 @@ public class EnemyFollowPath : MonoBehaviour
 
     Transform[] waypoints;
     int currentWaypointIndex = 0;
+
+    Rigidbody2D m_rigidbody;
+    void Awake()
+    {
+        m_rigidbody = GetComponent<Rigidbody2D>();
+    }
     void Start()
     {
         waypoints = new Transform[enemyPath.childCount];
@@ -15,15 +21,15 @@ public class EnemyFollowPath : MonoBehaviour
             waypoints[i] = enemyPath.GetChild(i);
         }
     }
-    void Update()
+    void FixedUpdate()
     {
         if (waypoints.Length == 0) return;
 
         Transform target = waypoints[currentWaypointIndex];
-        Vector3 direction = (target.position - transform.position).normalized;
-        transform.position += direction * enemyMoveSpeed * Time.deltaTime;
+        Vector2 direction = ((Vector2)target.position - m_rigidbody.position).normalized;
+        m_rigidbody.linearVelocity = direction * enemyMoveSpeed;
 
-        if (Vector3.Distance(transform.position, target.position) < 0.1f)
+        if (Vector3.Distance(m_rigidbody.position, target.position) < 0.1f)
         {
             currentWaypointIndex++;
 
