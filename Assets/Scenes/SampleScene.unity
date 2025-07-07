@@ -16648,7 +16648,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sfxSource: {fileID: 1530910339}
   musicSource: {fileID: 0}
-  hitEnemySound: {fileID: 8300000, guid: 860d6f4ce3ab98b4badf85dbd97ec8c1, type: 3}
+  hitEnemySound: {fileID: 8300000, guid: d0edc0cb08c214345b2f89703a44d034, type: 3}
   slashAttackSound: {fileID: 8300000, guid: 219d8e3ef9b2fed4e994586657735860, type: 3}
 --- !u!1 &1614102933
 GameObject:

@@ -43,9 +43,13 @@ public class PlayerMovement : MonoBehaviour
         m_rigidbody.linearVelocity = m_moveAmount * m_moveSpeed;
 
         if (m_moveAmount.sqrMagnitude > 0)
+        {
             playerMoveState = MoveState.Moving;
+        }
         else
+        {
             playerMoveState = MoveState.Idle;
+        }
 
         m_animator.SetBool("isMoving", playerMoveState == MoveState.Moving);
         

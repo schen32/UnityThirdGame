@@ -1,6 +1,6 @@
 Todo:
 
 - enemy flash on hit
-- attack sound
-- damage sound
-- damage numbers
+- enemy knockback
+- hit particles
+- hit flash
