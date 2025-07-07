@@ -4,36 +4,38 @@ using UnityEngine.InputSystem;
 
 public class PlayerAttack : MonoBehaviour
 {
+    enum AttackState
+    {
+        Ready,
+        Attacking,
+        Cooldown
+    }
+
     public float slashAttackDuration = 0.5f;
     public float slashAttackCooldown = 0.5f;
 
+    AttackState slashAttackState = AttackState.Ready;
+
     Animator m_animator;
-    bool isDoingSlashAttack = false;
-    bool isSlashAttackOnCooldown = false;
     void Awake()
     {
         m_animator = GetComponent<Animator>();
     }
-    void Update()
-    {
-        m_animator.SetBool("isDoingSlashAttack", isDoingSlashAttack);
-    }
     public void OnAttack(InputValue value)
     {
-        if (isSlashAttackOnCooldown) return;
+        if (slashAttackState != AttackState.Ready) return;
 
         StartCoroutine(DoSlashAttack());
     }
     IEnumerator DoSlashAttack()
     {
-        isSlashAttackOnCooldown = true;
+        m_animator.SetTrigger("SlashAttack");
+        slashAttackState = AttackState.Attacking;
 
-        isDoingSlashAttack = true;
         yield return new WaitForSeconds(slashAttackDuration);
-        isDoingSlashAttack = false;
+        slashAttackState = AttackState.Cooldown;
 
         yield return new WaitForSeconds(slashAttackCooldown);
-
-        isSlashAttackOnCooldown = false;
+        slashAttackState = AttackState.Ready;
     }
 }

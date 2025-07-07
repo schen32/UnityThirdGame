@@ -3,6 +3,12 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
+    enum MoveState
+    {
+        Idle,
+        Moving
+    }
+
     public float m_moveSpeed = 5.0f;
 
     SpriteRenderer m_spriteRenderer;
@@ -10,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody2D m_rigidbody;
 
     Vector2 m_moveAmount = Vector2.zero;
-    bool m_isMoving = false;
+    MoveState playerMoveState = MoveState.Idle;
 
     void Awake()
     {
@@ -25,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (m_moveAmount.sqrMagnitude > 0)
         {
-            m_isMoving = true;
+            playerMoveState = MoveState.Moving;
             
             if (m_moveAmount.x > 0)
             {
@@ -38,9 +44,9 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            m_isMoving = false;
+            playerMoveState = MoveState.Idle;
         }
-        m_animator.SetBool("isMoving", m_isMoving);
+        m_animator.SetBool("isMoving", playerMoveState == MoveState.Moving);
         
     }
     public void OnMove(InputValue value)

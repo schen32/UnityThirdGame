@@ -12672,7 +12672,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slashAttackDuration: 0.5
-  slashAttackCooldown: 1
+  slashAttackCooldown: 0.5
 --- !u!1 &107874845
 GameObject:
   m_ObjectHideFlags: 0
