@@ -1,5 +1,4 @@
 Todo:
 
-- add collisions to foreground tiles
-- add rigidbody and collider to player
-- make enemy rigidbody material slippery
+- player can attack enemy
+- damage numbers
