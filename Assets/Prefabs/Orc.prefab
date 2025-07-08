@@ -204,6 +204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6bf377a0c6c94e408859f16e626275b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyHitParticles: {fileID: 0}
   maxHealth: 3
 --- !u!114 &7204369733842191025
 MonoBehaviour:

@@ -18,6 +18,8 @@ public class EnemyHealth : MonoBehaviour
         Vector3 dmgTextPos = new Vector3(transform.position.x, transform.position.y + m_spriteRenderer.size.y);
         DamageNumbers.Instance.SpawnDamageNumber(damageAmount, dmgTextPos);
 
+        EnemyHitParticles.Instance.Play(transform.position);
+
         currentHealth -= damageAmount;
         if (currentHealth <= 0)
         {

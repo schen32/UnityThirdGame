@@ -1,6 +1,4 @@
 Todo:
 
-- enemy flash on hit
-- enemy knockback
 - hit particles
 - hit flash
