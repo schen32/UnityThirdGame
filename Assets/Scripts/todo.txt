@@ -1,4 +1,3 @@
 Todo:
 
-- hit particles
 - hit flash

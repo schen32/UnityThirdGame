@@ -8,17 +8,17 @@ public class SlashAttack : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player")) return;
-        
+
         EnemyHealth enemyHealth = collision.GetComponent<EnemyHealth>();
-        if (enemyHealth != null)
+        if (enemyHealth & enemyHealth.enabled)
         {
             enemyHealth.TakeDamage(attackDamage);
         }
 
-        EnemyKnockbacked enemyKnockbacked = collision.GetComponent<EnemyKnockbacked>();
-        if (enemyKnockbacked != null)
+        EnemyKnockedback enemyKnockedback = collision.GetComponent<EnemyKnockedback>();
+        if (enemyKnockedback && enemyKnockedback.enabled)
         {
-            enemyKnockbacked.Knockbacked((Vector2)transform.position,
+            enemyKnockedback.Knockbacked((Vector2)transform.position,
                 knockbackForce, knockbackDuration, knockbackDamping);
         }
     }

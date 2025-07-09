@@ -15,7 +15,8 @@ GameObject:
   - component: {fileID: -1000327345767285861}
   - component: {fileID: 5348208874433191194}
   - component: {fileID: 3264255603980770944}
-  - component: {fileID: 7204369733842191025}
+  - component: {fileID: 5255536708117211008}
+  - component: {fileID: 305472376910731556}
   m_Layer: 0
   m_Name: Orc
   m_TagString: Untagged
@@ -204,9 +205,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6bf377a0c6c94e408859f16e626275b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHitParticles: {fileID: 0}
   maxHealth: 3
---- !u!114 &7204369733842191025
+--- !u!114 &5255536708117211008
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -215,6 +215,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 5936728702626507835}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61049967ea7525146a7466cc71477de0, type: 3}
+  m_Script: {fileID: 11500000, guid: 7e98a5a082875394aa504ec09ee0baff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &305472376910731556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5936728702626507835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 263badf6f57bf944db495f8813cec200, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

@@ -1,14 +1,14 @@
 using System.Collections;
 using UnityEngine;
 
-public class EnemyKnockbacked : MonoBehaviour
+public class EnemyKnockedback : MonoBehaviour
 {
-    EnemyFollowPath m_enemyFollowPath;
     Rigidbody2D m_rigidbody;
+    EnemyState m_enemyState;
     void Awake()
     {
         m_rigidbody = GetComponent<Rigidbody2D>();
-        m_enemyFollowPath = GetComponent<EnemyFollowPath>();
+        m_enemyState = GetComponent<EnemyState>();
     }
     public void Knockbacked(Vector2 hitFromPos, float knockbackForce, float knockbackDuration, float knockbackDamping)
     {
@@ -17,16 +17,17 @@ public class EnemyKnockbacked : MonoBehaviour
     }
     IEnumerator ApplyKnockback(Vector2 hitDirection, float knockbackForce, float knockbackDuration, float knockbackDamping)
     {
-        m_enemyFollowPath.enabled = false;
+        m_enemyState.SwitchStateTo(EnemyState.State.Knockedback);
 
         float originalLinearDamping = m_rigidbody.linearDamping;
         m_rigidbody.linearDamping = knockbackDamping;
 
+        m_rigidbody.linearVelocity = Vector2.zero;
         m_rigidbody.AddForce(hitDirection * knockbackForce, ForceMode2D.Impulse);
 
         yield return new WaitForSeconds(knockbackDuration);
-
         m_rigidbody.linearDamping = originalLinearDamping;
-        m_enemyFollowPath.enabled = true;
+
+        m_enemyState.SwitchStateTo(EnemyState.State.Alive);
     }
 }
