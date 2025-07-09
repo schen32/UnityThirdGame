@@ -24,7 +24,7 @@ public class EnemySpawner : MonoBehaviour
             GameObject enemy = Instantiate(enemyPrefab, enemyPath.GetChild(0).position, Quaternion.identity);
 
             var enemyFollowPath = enemy.GetComponent<EnemyFollowPath>();
-            enemyFollowPath.enemyPath = enemyPath;
+            enemyFollowPath.m_enemyPath = enemyPath;
 
             yield return new WaitForSeconds(timeBetweenEnemies);
         }

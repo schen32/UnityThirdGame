@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class EnemyFollowPath : MonoBehaviour
 {
-    public Transform enemyPath;
-    public float enemyMoveSpeed = 2f;
+    public Transform m_enemyPath;
+    public float m_enemyMoveSpeed = 2f;
 
-    Transform[] waypoints;
-    int currentWaypointIndex = 0;
+    Transform[] m_waypoints;
+    int m_currentWaypointIndex = 0;
 
     Rigidbody2D m_rigidbody;
     void Awake()
@@ -15,25 +15,25 @@ public class EnemyFollowPath : MonoBehaviour
     }
     void Start()
     {
-        waypoints = new Transform[enemyPath.childCount];
-        for (int i = 0; i < waypoints.Length; i++)
+        m_waypoints = new Transform[m_enemyPath.childCount];
+        for (int i = 0; i < m_waypoints.Length; i++)
         {
-            waypoints[i] = enemyPath.GetChild(i);
+            m_waypoints[i] = m_enemyPath.GetChild(i);
         }
     }
     void FixedUpdate()
     {
-        if (waypoints.Length == 0) return;
+        if (m_waypoints.Length == 0) return;
 
-        Transform target = waypoints[currentWaypointIndex];
+        Transform target = m_waypoints[m_currentWaypointIndex];
         Vector2 direction = ((Vector2)target.position - m_rigidbody.position).normalized;
-        m_rigidbody.linearVelocity = direction * enemyMoveSpeed;
+        m_rigidbody.linearVelocity = direction * m_enemyMoveSpeed;
 
         if (Vector3.Distance(m_rigidbody.position, target.position) < 0.1f)
         {
-            currentWaypointIndex++;
+            m_currentWaypointIndex++;
 
-            if (currentWaypointIndex >= waypoints.Length)
+            if (m_currentWaypointIndex >= m_waypoints.Length)
                 Destroy(gameObject);
         }
     }

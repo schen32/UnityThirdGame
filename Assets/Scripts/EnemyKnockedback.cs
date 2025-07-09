@@ -17,6 +17,7 @@ public class EnemyKnockedback : MonoBehaviour
     }
     IEnumerator ApplyKnockback(Vector2 hitDirection, float knockbackForce, float knockbackDuration, float knockbackDamping)
     {
+        var originalState = m_enemyState.m_state;
         m_enemyState.SwitchStateTo(EnemyState.State.Knockedback);
 
         float originalLinearDamping = m_rigidbody.linearDamping;
@@ -28,6 +29,6 @@ public class EnemyKnockedback : MonoBehaviour
         yield return new WaitForSeconds(knockbackDuration);
         m_rigidbody.linearDamping = originalLinearDamping;
 
-        m_enemyState.SwitchStateTo(EnemyState.State.Alive);
+        m_enemyState.SwitchStateTo(originalState);
     }
 }
