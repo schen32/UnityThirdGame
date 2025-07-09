@@ -12454,7 +12454,7 @@ GameObject:
   - component: {fileID: 29065711}
   - component: {fileID: 29065710}
   - component: {fileID: 29065716}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -21555,6 +21555,7 @@ MonoBehaviour:
   musicSource: {fileID: 0}
   hitEnemySound: {fileID: 8300000, guid: d0edc0cb08c214345b2f89703a44d034, type: 3}
   slashAttackSound: {fileID: 8300000, guid: 219d8e3ef9b2fed4e994586657735860, type: 3}
+  orcAttackSound: {fileID: 8300000, guid: bfd6681a2ffe7cc44aac78bc0a5a7de9, type: 3}
 --- !u!1 &1614102933
 GameObject:
   m_ObjectHideFlags: 0

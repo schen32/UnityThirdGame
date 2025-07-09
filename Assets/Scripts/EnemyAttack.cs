@@ -47,13 +47,13 @@ public class EnemyAttack : MonoBehaviour
 
         m_attackState = AttackState.Windup;
         m_animator.SetBool("isAttacking", true);
-
         yield return new WaitForSeconds(m_attackWindup);
         m_attackState = AttackState.Attacking;
 
+        AudioManager.Instance.PlayOrcAttackSound();
+
         Vector3 attackSpawnPos = new Vector3(transform.position.x, transform.position.y + m_spriteRenderer.size.y / 2);
         GameObject attack = Instantiate(m_attackPrefab, attackSpawnPos, Quaternion.identity, transform);
-
         SpriteRenderer slashSpriteRenderer = attack.GetComponent<SpriteRenderer>();
         slashSpriteRenderer.flipX = m_spriteRenderer.flipX;
 
@@ -66,7 +66,6 @@ public class EnemyAttack : MonoBehaviour
         m_attackState = AttackState.Ready;
 
         m_animator.SetBool("isAttacking", false);
-
         m_enemyState.SwitchStateTo(originalState);
     }
 }

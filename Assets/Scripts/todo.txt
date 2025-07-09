@@ -3,4 +3,4 @@ Todo:
 - hit flash
 - decorate map tiles
 - enemy hit player
-- enemy attack animation
+- enemy attack sounds

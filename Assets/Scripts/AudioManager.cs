@@ -9,6 +9,7 @@ public class AudioManager : MonoBehaviour
 
     public AudioClip hitEnemySound;
     public AudioClip slashAttackSound;
+    public AudioClip orcAttackSound;
     void Awake()
     {
         if (Instance == null)
@@ -30,6 +31,11 @@ public class AudioManager : MonoBehaviour
     public void PlaySlashAttackSound()
     {
         PlaySFX(slashAttackSound, 0.2f);
+    }
+
+    public void PlayOrcAttackSound()
+    {
+        PlaySFX(orcAttackSound, 0.2f);
     }
     public void PlayMusic(AudioClip clip)
     {
