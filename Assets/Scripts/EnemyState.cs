@@ -14,6 +14,7 @@ public class EnemyState : MonoBehaviour
 
     EnemyFollowPath m_enemyFollowPath;
     EnemyFollowPlayer m_enemyFollowPlayer;
+    EnemyAttack m_enemyAttack;
     EnemyHealth m_enemyHealth;
     EnemyKnockedback m_enemyKnockedback;
 
@@ -22,6 +23,7 @@ public class EnemyState : MonoBehaviour
     {
         m_enemyFollowPath = GetComponent<EnemyFollowPath>();
         m_enemyFollowPlayer = GetComponent<EnemyFollowPlayer>();
+        m_enemyAttack = GetComponent<EnemyAttack>();
         m_enemyHealth = GetComponent<EnemyHealth>();
         m_enemyKnockedback = GetComponent<EnemyKnockedback>();
 
@@ -52,6 +54,7 @@ public class EnemyState : MonoBehaviour
                 {
                     m_enemyFollowPath.enabled = true;
                     m_enemyFollowPlayer.enabled = false;
+                    m_enemyAttack.enabled = false;
                     m_enemyHealth.enabled = true;
                     m_enemyKnockedback.enabled = true;
                 }
@@ -60,6 +63,7 @@ public class EnemyState : MonoBehaviour
                 {
                     m_enemyFollowPath.enabled = false;
                     m_enemyFollowPlayer.enabled = true;
+                    m_enemyAttack.enabled = true;
                     m_enemyHealth.enabled = true;
                     m_enemyKnockedback.enabled = true;
                 }
@@ -68,6 +72,7 @@ public class EnemyState : MonoBehaviour
                 {
                     m_enemyFollowPath.enabled = false;
                     m_enemyFollowPlayer.enabled = false;
+                    m_enemyAttack.enabled = false;
                     m_enemyHealth.enabled = true;
                     m_enemyKnockedback.enabled = true;
                 }
@@ -76,6 +81,7 @@ public class EnemyState : MonoBehaviour
                 {
                     m_enemyFollowPath.enabled = false;
                     m_enemyFollowPlayer.enabled = false;
+                    m_enemyAttack.enabled = false;
                     m_enemyHealth.enabled = false;
                     m_enemyKnockedback.enabled = false;
                 }

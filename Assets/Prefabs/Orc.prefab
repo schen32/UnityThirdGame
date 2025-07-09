@@ -11,14 +11,15 @@ GameObject:
   - component: {fileID: 5849607454763080595}
   - component: {fileID: 1869503869623841324}
   - component: {fileID: 8782399904703507266}
-  - component: {fileID: 3773550090233329573}
   - component: {fileID: -1000327345767285861}
   - component: {fileID: 5348208874433191194}
   - component: {fileID: 3264255603980770944}
   - component: {fileID: 5255536708117211008}
   - component: {fileID: 305472376910731556}
+  - component: {fileID: 3773550090233329573}
   - component: {fileID: 6298842115936287916}
-  m_Layer: 0
+  - component: {fileID: 6194727062615526434}
+  m_Layer: 6
   m_Name: Orc
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117,20 +118,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &3773550090233329573
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5936728702626507835}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a979c6919c2c5f44483bdb8144daaa53, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_enemyPath: {fileID: 0}
-  m_enemyMoveSpeed: 2
 --- !u!58 &-1000327345767285861
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -233,6 +220,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_state: 0
   m_enemyDetectPlayerDistance: 5
+--- !u!114 &3773550090233329573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5936728702626507835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a979c6919c2c5f44483bdb8144daaa53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_enemyPath: {fileID: 0}
+  m_enemyMoveSpeed: 2
 --- !u!114 &6298842115936287916
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -240,9 +241,26 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5936728702626507835}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: efcb317f2e0255b40be97452aa705a08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_enemyMoveSpeed: 2
+--- !u!114 &6194727062615526434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5936728702626507835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb563b3fce2c2449587f2c0729c902, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_attackPrefab: {fileID: 4334254264792221280, guid: 43f8cf4bfccb8774ebf4218da54cea68, type: 3}
+  m_attackWindup: 0.7
+  m_attackDuration: 0.5
+  m_attackCooldown: 0.5
+  m_enemyAttackDistance: 2

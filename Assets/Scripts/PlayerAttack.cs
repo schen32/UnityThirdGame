@@ -1,5 +1,4 @@
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -12,12 +11,12 @@ public class PlayerAttack : MonoBehaviour
         Cooldown
     }
 
-    public GameObject slashAttackPrefab;
-    public float slashAttackDuration = 0.5f;
-    public float slashAttackCooldown = 0.5f;
+    public GameObject m_slashAttackPrefab;
+    public float m_slashAttackDuration = 0.5f;
+    public float m_slashAttackCooldown = 0.5f;
 
-    AttackState slashAttackState = AttackState.Ready;
-    bool isSlashAttackHeld = false;
+    AttackState m_slashAttackState = AttackState.Ready;
+    bool m_isSlashAttackHeld = false;
 
     Animator m_animator;
     SpriteRenderer m_spriteRenderer;
@@ -28,7 +27,7 @@ public class PlayerAttack : MonoBehaviour
     }
     void Update()
     {
-        if (isSlashAttackHeld && slashAttackState == AttackState.Ready)
+        if (m_isSlashAttackHeld && m_slashAttackState == AttackState.Ready)
         {
             StartCoroutine(DoSlashAttack());
         }
@@ -37,34 +36,34 @@ public class PlayerAttack : MonoBehaviour
     {
         if (context.started)
         {
-            isSlashAttackHeld = true;
+            m_isSlashAttackHeld = true;
         }
         else if (context.canceled)
         {
-            isSlashAttackHeld = false;
+            m_isSlashAttackHeld = false;
         }
         
     }
     IEnumerator DoSlashAttack()
     {
+        m_slashAttackState = AttackState.Attacking;
+
         AudioManager.Instance.PlaySlashAttackSound();
         m_animator.SetTrigger("SlashAttack");
-        slashAttackState = AttackState.Attacking;
 
         Vector3 slashAttackSpawnPos = new Vector3(transform.position.x, transform.position.y + m_spriteRenderer.size.y / 2);
-
-        GameObject slashAttack = Instantiate(slashAttackPrefab, slashAttackSpawnPos,
+        GameObject slashAttack = Instantiate(m_slashAttackPrefab, slashAttackSpawnPos,
             Quaternion.identity, transform);
 
         SpriteRenderer slashSpriteRenderer = slashAttack.GetComponent<SpriteRenderer>();
         slashSpriteRenderer.flipX = m_spriteRenderer.flipX;
 
-        yield return new WaitForSeconds(slashAttackDuration);
-        slashAttackState = AttackState.Cooldown;
+        yield return new WaitForSeconds(m_slashAttackDuration);
+        m_slashAttackState = AttackState.Cooldown;
 
         Destroy(slashAttack);
 
-        yield return new WaitForSeconds(slashAttackCooldown);
-        slashAttackState = AttackState.Ready;
+        yield return new WaitForSeconds(m_slashAttackCooldown);
+        m_slashAttackState = AttackState.Ready;
     }
 }

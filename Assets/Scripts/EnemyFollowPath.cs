@@ -9,9 +9,11 @@ public class EnemyFollowPath : MonoBehaviour
     int m_currentWaypointIndex = 0;
 
     Rigidbody2D m_rigidbody;
+    SpriteRenderer m_spriteRenderer;
     void Awake()
     {
         m_rigidbody = GetComponent<Rigidbody2D>();
+        m_spriteRenderer = GetComponent<SpriteRenderer>();
     }
     void Start()
     {
@@ -28,6 +30,15 @@ public class EnemyFollowPath : MonoBehaviour
         Transform target = m_waypoints[m_currentWaypointIndex];
         Vector2 direction = ((Vector2)target.position - m_rigidbody.position).normalized;
         m_rigidbody.linearVelocity = direction * m_enemyMoveSpeed;
+
+        if (m_rigidbody.linearVelocity.x >= 0)
+        {
+            m_spriteRenderer.flipX = false;
+        }
+        else
+        {
+            m_spriteRenderer.flipX = true;
+        }
 
         if (Vector3.Distance(m_rigidbody.position, target.position) < 0.1f)
         {

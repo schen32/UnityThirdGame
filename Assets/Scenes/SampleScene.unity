@@ -12448,11 +12448,11 @@ GameObject:
   m_Component:
   - component: {fileID: 29065709}
   - component: {fileID: 29065712}
-  - component: {fileID: 29065711}
-  - component: {fileID: 29065710}
   - component: {fileID: 29065713}
   - component: {fileID: 29065714}
   - component: {fileID: 29065715}
+  - component: {fileID: 29065711}
+  - component: {fileID: 29065710}
   - component: {fileID: 29065716}
   m_Layer: 0
   m_Name: Player
@@ -12771,9 +12771,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b496bf42ee7828448b32d45c7a8c7f78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slashAttackPrefab: {fileID: 4334254264792221280, guid: 93f516b10b8e82f498a33f020d0b8573, type: 3}
-  slashAttackDuration: 0.25
-  slashAttackCooldown: 0.5
+  m_slashAttackPrefab: {fileID: 4334254264792221280, guid: 93f516b10b8e82f498a33f020d0b8573, type: 3}
+  m_slashAttackDuration: 0.5
+  m_slashAttackCooldown: 0.5
 --- !u!1 &107874845
 GameObject:
   m_ObjectHideFlags: 0
