@@ -13,7 +13,7 @@ public class EnemyAttack : MonoBehaviour
     }
 
     public GameObject m_attackPrefab;
-    public float m_attackWindup = 0.7f;
+    public float m_attackWindup = 0.6f;
     public float m_attackDuration = 0.5f;
     public float m_attackCooldown = 0.5f;
 
@@ -24,11 +24,13 @@ public class EnemyAttack : MonoBehaviour
 
     SpriteRenderer m_spriteRenderer;
     Animator m_animator;
+    EnemyState m_enemyState;
     void Awake()
     {
         m_playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         m_spriteRenderer = GetComponent<SpriteRenderer>();
         m_animator = GetComponent<Animator>();
+        m_enemyState = GetComponent<EnemyState>();
     }
     void Update()
     {
@@ -40,8 +42,11 @@ public class EnemyAttack : MonoBehaviour
     }
     IEnumerator DoAttack()
     {
+        var originalState = m_enemyState.m_state;
+        m_enemyState.SwitchStateTo(EnemyState.State.Attacking);
+
         m_attackState = AttackState.Windup;
-        m_animator.SetTrigger("AttackTrigger");
+        m_animator.SetBool("isAttacking", true);
 
         yield return new WaitForSeconds(m_attackWindup);
         m_attackState = AttackState.Attacking;
@@ -59,5 +64,9 @@ public class EnemyAttack : MonoBehaviour
 
         yield return new WaitForSeconds(m_attackCooldown);
         m_attackState = AttackState.Ready;
+
+        m_animator.SetBool("isAttacking", false);
+
+        m_enemyState.SwitchStateTo(originalState);
     }
 }

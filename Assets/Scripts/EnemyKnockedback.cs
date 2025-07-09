@@ -23,7 +23,6 @@ public class EnemyKnockedback : MonoBehaviour
         float originalLinearDamping = m_rigidbody.linearDamping;
         m_rigidbody.linearDamping = knockbackDamping;
 
-        m_rigidbody.linearVelocity = Vector2.zero;
         m_rigidbody.AddForce(hitDirection * knockbackForce, ForceMode2D.Impulse);
 
         yield return new WaitForSeconds(knockbackDuration);

@@ -6,6 +6,7 @@ public class EnemyState : MonoBehaviour
     {
         FollowPath,
         FollowPlayer,
+        Attacking,
         Knockedback,
         Dead
     }
@@ -19,6 +20,8 @@ public class EnemyState : MonoBehaviour
     EnemyKnockedback m_enemyKnockedback;
 
     Transform m_playerTransform;
+    Rigidbody2D m_rigidbody;
+    CircleCollider2D m_circleCollider;
     private void Awake()
     {
         m_enemyFollowPath = GetComponent<EnemyFollowPath>();
@@ -28,6 +31,8 @@ public class EnemyState : MonoBehaviour
         m_enemyKnockedback = GetComponent<EnemyKnockedback>();
 
         m_playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        m_rigidbody = GetComponent<Rigidbody2D>();
+        m_circleCollider = GetComponent<CircleCollider2D>();
 
         SwitchStateTo(State.FollowPath);
     }
@@ -45,8 +50,10 @@ public class EnemyState : MonoBehaviour
     }
     public void SwitchStateTo(State state)
     {
-        if (state == m_state) return;
+        if (m_state == state || m_state == State.Dead) return;
         m_state = state;
+
+        m_rigidbody.linearVelocity = Vector2.zero;
 
         switch (state)
         {
@@ -55,8 +62,6 @@ public class EnemyState : MonoBehaviour
                     m_enemyFollowPath.enabled = true;
                     m_enemyFollowPlayer.enabled = false;
                     m_enemyAttack.enabled = false;
-                    m_enemyHealth.enabled = true;
-                    m_enemyKnockedback.enabled = true;
                 }
                 break;
             case State.FollowPlayer:
@@ -64,8 +69,13 @@ public class EnemyState : MonoBehaviour
                     m_enemyFollowPath.enabled = false;
                     m_enemyFollowPlayer.enabled = true;
                     m_enemyAttack.enabled = true;
-                    m_enemyHealth.enabled = true;
-                    m_enemyKnockedback.enabled = true;
+                }
+                break;
+            case State.Attacking:
+                {
+                    m_enemyFollowPath.enabled = false;
+                    m_enemyFollowPlayer.enabled = false;
+                    m_enemyAttack.enabled = true;
                 }
                 break;
             case State.Knockedback:
@@ -73,8 +83,6 @@ public class EnemyState : MonoBehaviour
                     m_enemyFollowPath.enabled = false;
                     m_enemyFollowPlayer.enabled = false;
                     m_enemyAttack.enabled = false;
-                    m_enemyHealth.enabled = true;
-                    m_enemyKnockedback.enabled = true;
                 }
                 break;
             case State.Dead:
@@ -84,6 +92,8 @@ public class EnemyState : MonoBehaviour
                     m_enemyAttack.enabled = false;
                     m_enemyHealth.enabled = false;
                     m_enemyKnockedback.enabled = false;
+
+                    m_circleCollider.enabled = false;
                 }
                 break;
         }

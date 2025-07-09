@@ -134,7 +134,7 @@ CircleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -260,7 +260,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_attackPrefab: {fileID: 4334254264792221280, guid: 43f8cf4bfccb8774ebf4218da54cea68, type: 3}
-  m_attackWindup: 0.7
+  m_attackWindup: 0.6
   m_attackDuration: 0.5
   m_attackCooldown: 0.5
   m_enemyAttackDistance: 2
