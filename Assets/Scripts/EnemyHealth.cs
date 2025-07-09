@@ -1,15 +1,15 @@
 using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
-    public int maxHealth = 3;
-    int currentHealth;
+    public int m_maxHealth = 3;
+    int m_currentHealth;
 
     SpriteRenderer m_spriteRenderer;
     Animator m_animator;
     EnemyState m_enemyState;
     void Awake()
     {
-        currentHealth = maxHealth;
+        m_currentHealth = m_maxHealth;
         m_spriteRenderer = GetComponent<SpriteRenderer>();
         m_animator = GetComponent<Animator>();
         m_enemyState = GetComponent<EnemyState>();
@@ -24,13 +24,13 @@ public class EnemyHealth : MonoBehaviour
 
         EnemyHitParticles.Instance.Play(transform.position);
 
-        currentHealth -= damageAmount;
-        if (currentHealth <= 0)
+        m_currentHealth -= damageAmount;
+        if (m_currentHealth <= 0)
         {
             m_animator.SetTrigger("DeathTrigger");
             m_enemyState.SwitchStateTo(EnemyState.State.Dead);
         }
-        return currentHealth;
+        return m_currentHealth;
     }
     public void DestroySelf()
     {

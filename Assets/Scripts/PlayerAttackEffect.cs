@@ -1,10 +1,10 @@
 using UnityEngine;
-public class SlashAttack : MonoBehaviour
+public class PlayerAttackEffect : MonoBehaviour
 {
-    public int attackDamage = 1;
-    public float knockbackForce = 5f;
-    public float knockbackDuration = 0.5f;
-    public float knockbackDamping = 5f;
+    public int m_attackDamage = 1;
+    public float m_knockbackForce = 5f;
+    public float m_knockbackDuration = 0.5f;
+    public float m_knockbackDamping = 5f;
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player")) return;
@@ -12,14 +12,14 @@ public class SlashAttack : MonoBehaviour
         EnemyHealth enemyHealth = collision.GetComponent<EnemyHealth>();
         if (enemyHealth & enemyHealth.enabled)
         {
-            enemyHealth.TakeDamage(attackDamage);
+            enemyHealth.TakeDamage(m_attackDamage);
         }
 
         EnemyKnockedback enemyKnockedback = collision.GetComponent<EnemyKnockedback>();
         if (enemyKnockedback && enemyKnockedback.enabled)
         {
             enemyKnockedback.Knockbacked((Vector2)transform.position,
-                knockbackForce, knockbackDuration, knockbackDamping);
+                m_knockbackForce, m_knockbackDuration, m_knockbackDamping);
         }
     }
 }

@@ -104,10 +104,10 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 183
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -129,7 +129,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.1875, y: 1.3125}
+    oldSize: {x: 6.25, y: 6.25}
     newSize: {x: 0.35, y: 0.21}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -198,7 +198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c88757f761d3a5542b26a57318577450, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDamage: 1
-  knockbackForce: 5
-  knockbackDuration: 0.5
-  knockbackDamping: 5
+  m_attackDamage: 1
+  m_knockbackForce: 5
+  m_knockbackDuration: 0.5
+  m_knockbackDamping: 5

@@ -4,3 +4,4 @@ Todo:
 - decorate map tiles
 - enemy hit player
 - enemy attack sounds
+- enemies stop moving after getting hit (bug)

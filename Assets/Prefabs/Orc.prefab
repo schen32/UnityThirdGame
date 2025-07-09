@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 6194727062615526434}
   m_Layer: 6
   m_Name: Orc
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -193,7 +193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6bf377a0c6c94e408859f16e626275b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 3
+  m_maxHealth: 3
 --- !u!114 &5255536708117211008
 MonoBehaviour:
   m_ObjectHideFlags: 0
