@@ -52,8 +52,7 @@ public class EnemyAttack : MonoBehaviour
 
         AudioManager.Instance.PlayOrcAttackSound();
 
-        Vector3 attackSpawnPos = new Vector3(transform.position.x, transform.position.y + m_spriteRenderer.size.y / 2);
-        GameObject attack = Instantiate(m_attackPrefab, attackSpawnPos, Quaternion.identity, transform);
+        GameObject attack = Instantiate(m_attackPrefab, transform.position, Quaternion.identity, transform);
         SpriteRenderer slashSpriteRenderer = attack.GetComponent<SpriteRenderer>();
         slashSpriteRenderer.flipX = m_spriteRenderer.flipX;
 

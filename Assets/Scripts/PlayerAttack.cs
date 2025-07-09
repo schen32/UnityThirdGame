@@ -51,8 +51,7 @@ public class PlayerAttack : MonoBehaviour
         AudioManager.Instance.PlaySlashAttackSound();
         m_animator.SetTrigger("SlashAttack");
 
-        Vector3 slashAttackSpawnPos = new Vector3(transform.position.x, transform.position.y + m_spriteRenderer.size.y / 2);
-        GameObject slashAttack = Instantiate(m_slashAttackPrefab, slashAttackSpawnPos,
+        GameObject slashAttack = Instantiate(m_slashAttackPrefab, transform.position,
             Quaternion.identity, transform);
 
         SpriteRenderer slashSpriteRenderer = slashAttack.GetComponent<SpriteRenderer>();
