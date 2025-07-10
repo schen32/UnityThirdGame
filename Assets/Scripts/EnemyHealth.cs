@@ -28,7 +28,7 @@ public class EnemyHealth : MonoBehaviour
         if (m_currentHealth <= 0)
         {
             m_animator.SetTrigger("DeathTrigger");
-            m_enemyState.SwitchStateTo(EnemyState.State.Dead);
+            m_enemyState.PushState(EnemyState.State.Dead);
         }
         return m_currentHealth;
     }

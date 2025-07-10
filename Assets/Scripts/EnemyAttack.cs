@@ -42,8 +42,7 @@ public class EnemyAttack : MonoBehaviour
     }
     IEnumerator DoAttack()
     {
-        var originalState = m_enemyState.m_state;
-        m_enemyState.SwitchStateTo(EnemyState.State.Attacking);
+        m_enemyState.PushState(EnemyState.State.Attacking);
 
         m_attackState = AttackState.Windup;
         m_animator.SetBool("isAttacking", true);
@@ -65,6 +64,6 @@ public class EnemyAttack : MonoBehaviour
         m_attackState = AttackState.Ready;
 
         m_animator.SetBool("isAttacking", false);
-        m_enemyState.SwitchStateTo(originalState);
+        m_enemyState.PopState();
     }
 }

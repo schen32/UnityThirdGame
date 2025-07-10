@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyState : MonoBehaviour
@@ -10,7 +11,7 @@ public class EnemyState : MonoBehaviour
         Knockedback,
         Dead
     }
-    public State m_state;
+    Stack<State> m_stateStack = new Stack<State>();
     public float m_enemyDetectPlayerDistance = 5f;
 
     EnemyFollowPath m_enemyFollowPath;
@@ -34,62 +35,73 @@ public class EnemyState : MonoBehaviour
         m_rigidbody = GetComponent<Rigidbody2D>();
         m_circleCollider = GetComponent<CircleCollider2D>();
 
-        SwitchStateTo(State.FollowPath);
+        PushState(State.FollowPath);
     }
     private void Update()
     {
         var enemyDistToPlayer = Vector3.Distance(transform.position, m_playerTransform.position);
-        if (enemyDistToPlayer <= m_enemyDetectPlayerDistance && m_state == State.FollowPath)
+        if (enemyDistToPlayer <= m_enemyDetectPlayerDistance && CurrentState() == State.FollowPath)
         {
-            SwitchStateTo(State.FollowPlayer);
+            PushState(State.FollowPlayer);
         }
-        else if (enemyDistToPlayer > m_enemyDetectPlayerDistance && m_state == State.FollowPlayer)
+        else if (enemyDistToPlayer > m_enemyDetectPlayerDistance && CurrentState() == State.FollowPlayer)
         {
-            SwitchStateTo(State.FollowPath);
+            PushState(State.FollowPath);
         }
     }
-    public void SwitchStateTo(State state)
+    public void PushState(State newState)
     {
-        if (m_state == state || m_state == State.Dead) return;
-        m_state = state;
+        m_stateStack.Push(newState);
+        SwitchStateTo(newState);
+    }
 
+    public void PopState()
+    {
+        if (m_stateStack.Count > 1)
+        {
+            m_stateStack.Pop();
+            SwitchStateTo(CurrentState());
+        }
+    }
+    public State CurrentState()
+    {
+        return m_stateStack.Peek();
+    }
+    private void SwitchStateTo(State state)
+    {
         m_rigidbody.linearVelocity = Vector2.zero;
+
+        m_enemyFollowPath.enabled = false;
+        m_enemyFollowPlayer.enabled = false;
+        m_enemyAttack.enabled = false;
+        m_enemyHealth.enabled = true;
+        m_enemyKnockedback.enabled = true;
 
         switch (state)
         {
             case State.FollowPath:
                 {
                     m_enemyFollowPath.enabled = true;
-                    m_enemyFollowPlayer.enabled = false;
-                    m_enemyAttack.enabled = false;
                 }
                 break;
             case State.FollowPlayer:
                 {
-                    m_enemyFollowPath.enabled = false;
                     m_enemyFollowPlayer.enabled = true;
                     m_enemyAttack.enabled = true;
                 }
                 break;
             case State.Attacking:
                 {
-                    m_enemyFollowPath.enabled = false;
-                    m_enemyFollowPlayer.enabled = false;
                     m_enemyAttack.enabled = true;
                 }
                 break;
             case State.Knockedback:
                 {
-                    m_enemyFollowPath.enabled = false;
-                    m_enemyFollowPlayer.enabled = false;
-                    m_enemyAttack.enabled = false;
+                    
                 }
                 break;
             case State.Dead:
                 {
-                    m_enemyFollowPath.enabled = false;
-                    m_enemyFollowPlayer.enabled = false;
-                    m_enemyAttack.enabled = false;
                     m_enemyHealth.enabled = false;
                     m_enemyKnockedback.enabled = false;
 
