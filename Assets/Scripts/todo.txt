@@ -1,4 +1,4 @@
 Todo:
 
 - hit flash
-- decorate map tiles
+- add a lake/water
