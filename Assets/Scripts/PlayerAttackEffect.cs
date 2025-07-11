@@ -18,7 +18,7 @@ public class PlayerAttackEffect : MonoBehaviour
         EnemyKnockedback enemyKnockedback = collision.GetComponent<EnemyKnockedback>();
         if (enemyKnockedback && enemyKnockedback.enabled)
         {
-            enemyKnockedback.Knockbacked((Vector2)transform.position,
+            enemyKnockedback.Knockedback(collision.attachedRigidbody, transform.position,
                 m_knockbackForce, m_knockbackDuration, m_knockbackDamping);
         }
     }
