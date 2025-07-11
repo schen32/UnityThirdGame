@@ -15,7 +15,7 @@ public class PlayerHealth : MonoBehaviour
 
     public int TakeDamage(int damageAmount)
     {
-        AudioManager.Instance.PlayHitEnemySound();
+        AudioManager.Instance.PlayHitPlayerSound();
         DamageNumberManager.Instance.SpawnDamageNumber(damageAmount, transform.position, Color.red);
         ParticleManager.Instance.PlayHitParticles(transform.position, Color.red);
 

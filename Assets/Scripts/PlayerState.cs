@@ -67,7 +67,6 @@ public class PlayerState : MonoBehaviour
             case State.Knockedback:
                 {
                     m_playerMovement.enabled = false;
-                    m_playerAttack.enabled = false;
                 }
                 break;
             case State.Dead:

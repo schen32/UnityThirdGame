@@ -25533,6 +25533,7 @@ MonoBehaviour:
   sfxSource: {fileID: 1530910339}
   musicSource: {fileID: 0}
   hitEnemySound: {fileID: 8300000, guid: d0edc0cb08c214345b2f89703a44d034, type: 3}
+  hitPlayerSound: {fileID: 8300000, guid: 27ceeb53a65a75a44897e22ca1d069d5, type: 3}
   slashAttackSound: {fileID: 8300000, guid: 219d8e3ef9b2fed4e994586657735860, type: 3}
   orcAttackSound: {fileID: 8300000, guid: bfd6681a2ffe7cc44aac78bc0a5a7de9, type: 3}
 --- !u!1 &1258273404

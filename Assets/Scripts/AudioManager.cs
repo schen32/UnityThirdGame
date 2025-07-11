@@ -8,6 +8,7 @@ public class AudioManager : MonoBehaviour
     public AudioSource musicSource;
 
     public AudioClip hitEnemySound;
+    public AudioClip hitPlayerSound;
     public AudioClip slashAttackSound;
     public AudioClip orcAttackSound;
     void Awake()
@@ -26,6 +27,10 @@ public class AudioManager : MonoBehaviour
     public void PlayHitEnemySound()
     {
         PlaySFX(hitEnemySound, 0.2f);
+    }
+    public void PlayHitPlayerSound()
+    {
+        PlaySFX(hitPlayerSound, 0.2f);
     }
 
     public void PlaySlashAttackSound()
