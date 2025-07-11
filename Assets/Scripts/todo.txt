@@ -2,3 +2,6 @@ Todo:
 
 - hit flash
 - add a lake/water
+- player health UI
+- exp
+- waves of enemies
