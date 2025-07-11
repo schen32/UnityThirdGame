@@ -9,7 +9,11 @@ public class EnemyAttackEffect : MonoBehaviour
     {
         if (collision.CompareTag("Enemy")) return;
 
-        KnockbackManager.Instance.Knockback(collision.attachedRigidbody,
-            transform.position, m_knockbackForce, m_knockbackDuration, m_knockbackDamping);
+        PlayerKnockedback playerKnockedback = collision.GetComponent<PlayerKnockedback>();
+        if (playerKnockedback && playerKnockedback.enabled)
+        {
+            playerKnockedback.Knockedback(collision.attachedRigidbody, transform.position,
+                m_knockbackForce, m_knockbackDuration, m_knockbackDamping);
+        }
     }
 }

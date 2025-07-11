@@ -14454,6 +14454,8 @@ GameObject:
   - component: {fileID: 29065711}
   - component: {fileID: 29065710}
   - component: {fileID: 29065716}
+  - component: {fileID: 29065717}
+  - component: {fileID: 29065718}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -14774,6 +14776,30 @@ MonoBehaviour:
   m_slashAttackPrefab: {fileID: 4334254264792221280, guid: 93f516b10b8e82f498a33f020d0b8573, type: 3}
   m_slashAttackDuration: 0.5
   m_slashAttackCooldown: 0.5
+--- !u!114 &29065717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 29065708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0835c9da0b89d3c4c80d9a6f7379942f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &29065718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 29065708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b99fa2ea128ddf74ca8e1d87d90d9bb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &107874845
 GameObject:
   m_ObjectHideFlags: 0
