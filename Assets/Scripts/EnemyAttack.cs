@@ -44,7 +44,9 @@ public class EnemyAttack : MonoBehaviour
 
         m_attackState = AttackState.Windup;
         m_animator.SetBool("isAttacking", true);
+
         yield return new WaitForSeconds(m_attackWindup);
+        if (m_enemyState.CurrentState() == EnemyState.State.Dead) yield break;
         m_attackState = AttackState.Attacking;
 
         AudioManager.Instance.PlayOrcAttackSound();

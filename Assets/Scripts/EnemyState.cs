@@ -51,12 +51,16 @@ public class EnemyState : MonoBehaviour
     }
     public void PushState(State newState)
     {
+        if (m_stateStack.Count > 0 && CurrentState() == State.Dead) return;
+
         m_stateStack.Push(newState);
         SwitchStateTo(newState);
     }
 
     public void PopState()
     {
+        if (m_stateStack.Count > 0 && CurrentState() == State.Dead) return;
+
         if (m_stateStack.Count > 1)
         {
             m_stateStack.Pop();
