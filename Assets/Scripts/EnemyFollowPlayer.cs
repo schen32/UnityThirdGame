@@ -5,12 +5,10 @@ public class EnemyFollowPlayer : MonoBehaviour
 
     Transform m_playerTransform;
     Rigidbody2D m_rigidbody;
-    SpriteRenderer m_spriteRenderer;
     void Awake()
     {
         m_rigidbody = GetComponent<Rigidbody2D>();
         m_playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
-        m_spriteRenderer = GetComponent<SpriteRenderer>();
     }
     void FixedUpdate()
     {
@@ -18,12 +16,10 @@ public class EnemyFollowPlayer : MonoBehaviour
         m_rigidbody.linearVelocity = Vector2.Lerp(m_rigidbody.linearVelocity, toPlayer * m_enemyMoveSpeed, 0.1f);
 
         if (m_rigidbody.linearVelocity.x >= 0)
-        {
-            m_spriteRenderer.flipX = false;
-        }
+            transform.localScale = new Vector3(1, 1, 1);
         else
         {
-            m_spriteRenderer.flipX = true;
+            transform.localScale = new Vector3(-1, 1, 1);
         }
     }
 

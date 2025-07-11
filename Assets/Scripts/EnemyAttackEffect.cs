@@ -9,6 +9,12 @@ public class EnemyAttackEffect : MonoBehaviour
     {
         if (collision.CompareTag("Enemy")) return;
 
+        PlayerHealth playerHealth = collision.GetComponent<PlayerHealth>();
+        if (playerHealth & playerHealth.enabled)
+        {
+            playerHealth.TakeDamage(m_attackDamage);
+        }
+
         PlayerKnockedback playerKnockedback = collision.GetComponent<PlayerKnockedback>();
         if (playerKnockedback && playerKnockedback.enabled)
         {

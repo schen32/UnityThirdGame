@@ -16,11 +16,12 @@ public class DamageNumberManager : MonoBehaviour
         else
             Destroy(gameObject);
     }
-    public void SpawnDamageNumber(int damageAmount, Vector2 position)
+    public void SpawnDamageNumber(int damageAmount, Vector2 position, Color color)
     {
         Vector2 dmgTextPos = position + new Vector2(0, m_yOffset);
         GameObject dmgText = Instantiate(damageTextPrefab, dmgTextPos, Quaternion.identity, m_parentCanvasTransform);
         dmgText.GetComponent<TMPro.TextMeshProUGUI>().text = damageAmount.ToString();
+        dmgText.GetComponent<TMPro.TextMeshProUGUI>().color = color;
 
         StartCoroutine(DestroyDamageNumber(dmgText));
     }

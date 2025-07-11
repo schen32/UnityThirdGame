@@ -11,7 +11,6 @@ public class PlayerMovement : MonoBehaviour
 
     public float m_moveSpeed = 5.0f;
 
-    SpriteRenderer m_spriteRenderer;
     Animator m_animator;
     Rigidbody2D m_rigidbody;
 
@@ -20,7 +19,6 @@ public class PlayerMovement : MonoBehaviour
 
     void Awake()
     {
-        m_spriteRenderer = GetComponent<SpriteRenderer>();
         m_animator = GetComponent<Animator>();
         m_rigidbody = GetComponent<Rigidbody2D>();
     }
@@ -33,9 +31,9 @@ public class PlayerMovement : MonoBehaviour
         Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
 
         if (mouseWorldPos.x > transform.position.x)
-            m_spriteRenderer.flipX = false;
+            transform.localScale = new Vector3(1, 1, 1);
         else if (mouseWorldPos.x < transform.position.x)
-            m_spriteRenderer.flipX = true;
+            transform.localScale = new Vector3(-1, 1, 1);
     }
 
     void FixedUpdate()

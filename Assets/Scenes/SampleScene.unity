@@ -14456,6 +14456,7 @@ GameObject:
   - component: {fileID: 29065716}
   - component: {fileID: 29065717}
   - component: {fileID: 29065718}
+  - component: {fileID: 29065719}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -14800,6 +14801,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b99fa2ea128ddf74ca8e1d87d90d9bb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &29065719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 29065708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 925806f60d76a2c4ca9b06f73b82b4ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_maxHealth: 10
 --- !u!1 &107874845
 GameObject:
   m_ObjectHideFlags: 0
@@ -14847,7 +14861,7 @@ GameObject:
   - component: {fileID: 514599592}
   - component: {fileID: 514599591}
   m_Layer: 0
-  m_Name: EnemyHitParticles
+  m_Name: HitParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24185,7 +24199,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca88e2ec4c530c74eaf9e073c15f5fde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_enemyHitParticles: {fileID: 514599592}
+  m_hitParticles: {fileID: 514599592}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -26145,7 +26159,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1957145110734550204, guid: 977df69e1bd414943a4371dacf6605ca, type: 3}
       propertyPath: m_Name
-      value: EnemyHitParticles
+      value: HitParticles
       objectReference: {fileID: 0}
     - target: {fileID: 6133312196207478704, guid: 977df69e1bd414943a4371dacf6605ca, type: 3}
       propertyPath: m_LocalPosition.x

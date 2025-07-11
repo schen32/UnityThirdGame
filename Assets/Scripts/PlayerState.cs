@@ -13,6 +13,8 @@ public class PlayerState : MonoBehaviour
 
     PlayerMovement m_playerMovement;
     PlayerAttack m_playerAttack;
+    PlayerKnockedback m_playerKnockedback;
+    PlayerHealth m_playerHealth;
 
     Rigidbody2D m_rigidbody;
     CircleCollider2D m_circleCollider;
@@ -20,6 +22,8 @@ public class PlayerState : MonoBehaviour
     {
         m_playerMovement = GetComponent<PlayerMovement>();
         m_playerAttack = GetComponent<PlayerAttack>();
+        m_playerKnockedback = GetComponent<PlayerKnockedback>();
+        m_playerHealth = GetComponent<PlayerHealth>();
 
         m_rigidbody = GetComponent<Rigidbody2D>();
         m_circleCollider = GetComponent<CircleCollider2D>();
@@ -50,6 +54,8 @@ public class PlayerState : MonoBehaviour
 
         m_playerMovement.enabled = true;
         m_playerAttack.enabled = true;
+        m_playerKnockedback.enabled = true;
+        m_playerHealth.enabled = true;
 
         switch (state)
         {
@@ -68,6 +74,8 @@ public class PlayerState : MonoBehaviour
                 {
                     m_playerMovement.enabled = false;
                     m_playerAttack.enabled = false;
+                    m_playerKnockedback.enabled = false;
+                    m_playerHealth.enabled = false;
 
                     m_circleCollider.enabled = false;
                 }

@@ -3,7 +3,7 @@ using UnityEngine;
 public class ParticleManager : MonoBehaviour
 {
     public static ParticleManager Instance;
-    public UnityEngine.ParticleSystem m_enemyHitParticles;
+    public ParticleSystem m_hitParticles;
     void Awake()
     {
         if (Instance == null)
@@ -13,9 +13,11 @@ public class ParticleManager : MonoBehaviour
         else
             Destroy(gameObject);
     }
-    public void PlayEnemyHitParticles(Vector3 position)
+    public void PlayHitParticles(Vector3 position, Color color)
     {
-        m_enemyHitParticles.transform.position = position;
-        m_enemyHitParticles.Play();
+        m_hitParticles.transform.position = position;
+        var main = m_hitParticles.main;
+        main.startColor = color;
+        m_hitParticles.Play();
     }
 }

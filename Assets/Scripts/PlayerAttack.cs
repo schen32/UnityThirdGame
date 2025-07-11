@@ -54,9 +54,6 @@ public class PlayerAttack : MonoBehaviour
         GameObject slashAttack = Instantiate(m_slashAttackPrefab, transform.position,
             Quaternion.identity, transform);
 
-        SpriteRenderer slashSpriteRenderer = slashAttack.GetComponent<SpriteRenderer>();
-        slashSpriteRenderer.flipX = m_spriteRenderer.flipX;
-
         yield return new WaitForSeconds(m_slashAttackDuration);
         m_slashAttackState = AttackState.Cooldown;
 

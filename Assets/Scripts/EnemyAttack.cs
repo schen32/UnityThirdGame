@@ -22,13 +22,11 @@ public class EnemyAttack : MonoBehaviour
 
     AttackState m_attackState = AttackState.Ready;
 
-    SpriteRenderer m_spriteRenderer;
     Animator m_animator;
     EnemyState m_enemyState;
     void Awake()
     {
         m_playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
-        m_spriteRenderer = GetComponent<SpriteRenderer>();
         m_animator = GetComponent<Animator>();
         m_enemyState = GetComponent<EnemyState>();
     }
@@ -50,10 +48,7 @@ public class EnemyAttack : MonoBehaviour
         m_attackState = AttackState.Attacking;
 
         AudioManager.Instance.PlayOrcAttackSound();
-
         GameObject attack = Instantiate(m_attackPrefab, transform.position, Quaternion.identity, transform);
-        SpriteRenderer slashSpriteRenderer = attack.GetComponent<SpriteRenderer>();
-        slashSpriteRenderer.flipX = m_spriteRenderer.flipX;
 
         yield return new WaitForSeconds(m_attackDuration);
         m_attackState = AttackState.Cooldown;

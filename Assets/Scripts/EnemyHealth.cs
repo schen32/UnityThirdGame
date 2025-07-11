@@ -16,8 +16,8 @@ public class EnemyHealth : MonoBehaviour
     public int TakeDamage(int damageAmount)
     {
         AudioManager.Instance.PlayHitEnemySound();
-        DamageNumberManager.Instance.SpawnDamageNumber(damageAmount, transform.position);
-        ParticleManager.Instance.PlayEnemyHitParticles(transform.position);
+        DamageNumberManager.Instance.SpawnDamageNumber(damageAmount, transform.position, Color.white);
+        ParticleManager.Instance.PlayHitParticles(transform.position, Color.white);
 
         m_currentHealth -= damageAmount;
         if (m_currentHealth <= 0)
