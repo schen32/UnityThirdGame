@@ -167,7 +167,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDamping: 0
+  m_LinearDamping: 5
   m_AngularDamping: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 6200000, guid: 1cb69188353a1f74d84392b1f0fdf5a4, type: 2}
@@ -218,7 +218,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 263badf6f57bf944db495f8813cec200, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_state: 0
   m_enemyDetectPlayerDistance: 5
 --- !u!114 &3773550090233329573
 MonoBehaviour:
@@ -261,6 +260,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_attackPrefab: {fileID: 4334254264792221280, guid: 43f8cf4bfccb8774ebf4218da54cea68, type: 3}
   m_attackWindup: 0.6
-  m_attackDuration: 0.5
+  m_attackDuration: 0.3
   m_attackCooldown: 0.5
   m_enemyAttackDistance: 2

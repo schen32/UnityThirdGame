@@ -19,7 +19,7 @@ public class EnemyAttackEffect : MonoBehaviour
         if (playerKnockedback && playerKnockedback.enabled)
         {
             playerKnockedback.Knockedback(collision.attachedRigidbody, transform.position,
-                m_knockbackForce, m_knockbackDuration, m_knockbackDamping);
+                m_knockbackForce, m_knockbackDuration);
         }
     }
 }

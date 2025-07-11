@@ -14,7 +14,7 @@ public class EnemyAttack : MonoBehaviour
 
     public GameObject m_attackPrefab;
     public float m_attackWindup = 0.6f;
-    public float m_attackDuration = 0.5f;
+    public float m_attackDuration = 0.3f;
     public float m_attackCooldown = 0.5f;
 
     public float m_enemyAttackDistance = 2f;

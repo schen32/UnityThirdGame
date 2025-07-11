@@ -4,7 +4,6 @@ public class PlayerAttackEffect : MonoBehaviour
     public int m_attackDamage = 1;
     public float m_knockbackForce = 5f;
     public float m_knockbackDuration = 0.5f;
-    public float m_knockbackDamping = 5f;
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player")) return;
@@ -19,7 +18,7 @@ public class PlayerAttackEffect : MonoBehaviour
         if (enemyKnockedback && enemyKnockedback.enabled)
         {
             enemyKnockedback.Knockedback(collision.attachedRigidbody, transform.position,
-                m_knockbackForce, m_knockbackDuration, m_knockbackDamping);
+                m_knockbackForce, m_knockbackDuration);
         }
     }
 }

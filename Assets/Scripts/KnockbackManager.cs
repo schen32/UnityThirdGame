@@ -12,16 +12,10 @@ public class KnockbackManager : MonoBehaviour
             Destroy(Instance);
     }
     public IEnumerator Knockback(Rigidbody2D rigidbody,
-        Vector2 hitFromPos, float knockbackForce, float knockbackDuration, float knockbackDamping)
+        Vector2 hitFromPos, float knockbackForce, float knockbackDuration)
     {
         Vector2 hitDirection = (rigidbody.position - hitFromPos).normalized;
-
-        float originalLinearDamping = rigidbody.linearDamping;
-        rigidbody.linearDamping = knockbackDamping;
-
         rigidbody.AddForce(hitDirection * knockbackForce, ForceMode2D.Impulse);
-
         yield return new WaitForSeconds(knockbackDuration);
-        rigidbody.linearDamping = originalLinearDamping;
     }
 }

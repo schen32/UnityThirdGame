@@ -14712,7 +14712,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDamping: 0
+  m_LinearDamping: 5
   m_AngularDamping: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -25900,7 +25900,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 5936728702626507835, guid: 1a28e4e77f89694409ad11ad225782f9, type: 3}
   enemyPath: {fileID: 331580967}
-  timeBetweenEnemies: 10
+  timeBetweenEnemies: 8
   startDelay: 0
 --- !u!1 &1732888989
 GameObject:
@@ -26041,8 +26041,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 5936728702626507835, guid: 1a28e4e77f89694409ad11ad225782f9, type: 3}
   enemyPath: {fileID: 729771289}
-  timeBetweenEnemies: 10
-  startDelay: 5
+  timeBetweenEnemies: 8
+  startDelay: 2
 --- !u!1 &2077221691
 GameObject:
   m_ObjectHideFlags: 0
