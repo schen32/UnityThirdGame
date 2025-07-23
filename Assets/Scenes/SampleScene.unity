@@ -14861,7 +14861,7 @@ GameObject:
   - component: {fileID: 514599592}
   - component: {fileID: 514599591}
   m_Layer: 0
-  m_Name: HitParticles
+  m_Name: CircularBurstParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24969,7 +24969,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca88e2ec4c530c74eaf9e073c15f5fde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_hitParticles: {fileID: 514599592}
+  m_burstParticles: {fileID: 514599592}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -27261,7 +27261,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1957145110734550204, guid: 977df69e1bd414943a4371dacf6605ca, type: 3}
       propertyPath: m_Name
-      value: HitParticles
+      value: CircularBurstParticles
       objectReference: {fileID: 0}
     - target: {fileID: 6133312196207478704, guid: 977df69e1bd414943a4371dacf6605ca, type: 3}
       propertyPath: m_LocalPosition.x

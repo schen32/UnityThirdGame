@@ -41,7 +41,10 @@ public class EnemyFollowPath : MonoBehaviour
             m_currentWaypointIndex++;
 
             if (m_currentWaypointIndex >= m_waypoints.Length)
+            {
+                ParticleManager.Instance.PlayBurstParticles(transform.position, Color.darkRed);
                 Destroy(gameObject);
+            }
         }
     }
 }

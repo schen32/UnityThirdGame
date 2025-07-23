@@ -22,6 +22,7 @@ public class EnemySpawner : MonoBehaviour
         while (true)
         {
             GameObject enemy = Instantiate(enemyPrefab, enemyPath.GetChild(0).position, Quaternion.identity);
+            ParticleManager.Instance.PlayBurstParticles(enemy.transform.position, Color.darkBlue);
 
             var enemyFollowPath = enemy.GetComponent<EnemyFollowPath>();
             enemyFollowPath.m_enemyPath = enemyPath;
