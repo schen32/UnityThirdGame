@@ -12,18 +12,16 @@ public class PlayerAttack : MonoBehaviour
     }
 
     public GameObject m_slashAttackPrefab;
-    public float m_slashAttackDuration = 0.5f;
+    public float m_slashAttackDuration = 0.3f;
     public float m_slashAttackCooldown = 0.5f;
 
     AttackState m_slashAttackState = AttackState.Ready;
     bool m_isSlashAttackHeld = false;
 
     Animator m_animator;
-    SpriteRenderer m_spriteRenderer;
     void Awake()
     {
         m_animator = GetComponent<Animator>();
-        m_spriteRenderer = GetComponent<SpriteRenderer>();
     }
     void Update()
     {

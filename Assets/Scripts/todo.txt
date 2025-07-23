@@ -1,6 +1,6 @@
 Todo:
 
-- hit flash
+- enemy hit flash
 - add a lake/water
 - player health UI
 - exp
