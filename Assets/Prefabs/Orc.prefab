@@ -152,8 +152,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0.4}
-  m_Radius: 0.4
+  m_Offset: {x: 0, y: -0.1}
+  m_Radius: 0.3
 --- !u!50 &5348208874433191194
 Rigidbody2D:
   serializedVersion: 5
@@ -262,4 +262,4 @@ MonoBehaviour:
   m_attackWindup: 0.6
   m_attackDuration: 0.3
   m_attackCooldown: 0.5
-  m_enemyAttackDistance: 2
+  m_enemyAttackDistance: 1.5
